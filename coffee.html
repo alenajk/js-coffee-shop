@@ -55,9 +55,10 @@
     // evt optional/free parameter, associated with addEventListener, allows us to inspect 'click' or other event, as defined in addEventListener.
     function makeCoffee(evt){
         myImage.setAttribute("src", "static/coffee_machine.jpg");
-        setTimeout(function() {myImage.setAttribute("src", "static/coffee_beans.jpg")}, 500);
+        setTimeout(function(evt) {myImage.setAttribute("src", "static/coffee_mug.jpg")}, 1000);
+        setTimeout(function(evt) {myImage.setAttribute("src", "static/coffee_beans.jpg")}, 1500);
         // myImage.setAttribute("src", "static/coffee_mug.jpg");
-        console.log(evt);
+        console.dir(evt);
     }
 
     myImage.addEventListener('click', makeCoffee);
