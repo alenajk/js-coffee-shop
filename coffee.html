@@ -49,19 +49,30 @@
 
     var myImage = document.getElementById("coffee_image");
     var myRevenueMessage = document.getElementById("revenue");
+    var drinksOrdered = [];
 
     myImage.setAttribute("src", "static/coffee_beans.jpg");
 
     // evt optional/free parameter, associated with addEventListener, allows us to inspect 'click' or other event, as defined in addEventListener.
-    function makeCoffee(evt){
+    function makeCoffee(drinkType){
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
         myImage.setAttribute("src", "static/coffee_machine.jpg");
-        setTimeout(function(evt) {myImage.setAttribute("src", "static/coffee_mug.jpg")}, 1000);
-        setTimeout(function(evt) {myImage.setAttribute("src", "static/coffee_beans.jpg")}, 1500);
-        // myImage.setAttribute("src", "static/coffee_mug.jpg");
-        console.dir(evt);
+        setTimeout(function() {myImage.setAttribute("src", "static/coffee_mug.jpg")}, 1000);
+        setTimeout(function() {myImage.setAttribute("src", "static/coffee_beans.jpg")}, 1500);
     }
 
-    myImage.addEventListener('click', makeCoffee);
+    myImage.addEventListener('click', function(evt){
+        return makeCoffee("brew");
+        console.dir(evt)
+    });
+
+    // myImage.addEventListener('click', thing_to_do_on_click);
+
+    // function thing_to_do_on_click(e){
+    //     console.dir(e);
+    //     return makeCoffee("brew");
+    // }
 
     // use this dictionary in further study step
 
